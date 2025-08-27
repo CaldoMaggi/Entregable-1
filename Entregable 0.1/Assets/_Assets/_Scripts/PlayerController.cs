@@ -2,24 +2,30 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public Rigidbody2D _rb2d;
-    public float fuerzaSalto;
-    public Vector2 direccionSalto;
-
+    public Rigidbody2D rb2d;
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        bool flechaUp = Input.GetKeyDown(KeyCode.UpArrow);
+        bool flechaLeft = Input.GetKeyDown(KeyCode.LeftArrow);
+        bool flechaRight = Input.GetKeyDown(KeyCode.RightArrow);
+        rb2d = GetComponent<Rigidbody2D>();
+
+        if (flechaUp)
         {
-            _rb2d.AddForce(direccionSalto * fuerzaSalto);
+            Debug.Log("UpArrow key was pressed.");
+            rb2d.AddForce(Vector2.up * 5, ForceMode2D.Impulse);
         }
-        if (Input.GetKeyUp(KeyCode.LeftArrow)) 
+
+        if (flechaLeft)
         {
-            _rb2d.AddForce(direccionSalto * -fuerzaSalto);
+            Debug.Log("flechaLeft key was pressed.");
+            rb2d.AddForce(Vector2.left * 2, ForceMode2D.Impulse);
         }
-        else if(Input.GetKeyUp(KeyCode.RightArrow))
+
+        if (flechaRight)
         {
-            _rb2d.AddForce(direccionSalto * fuerzaSalto);
+            Debug.Log("flechaRight key was pressed.");
+            rb2d.AddForce(Vector2.right * 2, ForceMode2D.Impulse);
         }
-    
     }
 }
