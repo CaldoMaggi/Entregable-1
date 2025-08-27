@@ -24,8 +24,4 @@ public class GameManager : MonoBehaviour
         vida -= salud;
         textoVida.text = "Vida: " + vida;
     }
-    public void ReloadScene()
-    {
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
 }
