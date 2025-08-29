@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class GameManager : MonoBehaviour
 {
@@ -23,5 +24,20 @@ public class GameManager : MonoBehaviour
     {
         vida -= salud;
         textoVida.text = "Vida: " + vida;
+        VidaTotal(vida);
+    }
+
+    public void SumarVida(int musloVida)
+    {
+        vida += musloVida;
+        textoVida.text = "Vida: " + vida;
+        VidaTotal(vida);
+    }
+    private void VidaTotal(int vida)
+    {
+        if (vida <= 0)
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 }

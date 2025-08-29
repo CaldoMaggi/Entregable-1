@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PuntoHueso : MonoBehaviour
+public class MuslosVida : MonoBehaviour
 {
     [SerializeField]
     private GameManager gameManager;
@@ -9,7 +9,7 @@ public class PuntoHueso : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            gameManager.SumarPuntos(1);
+            gameManager.SumarVida(5);
             Destroy(this.gameObject);
         }
     }
