@@ -7,17 +7,39 @@ public class GameManager : MonoBehaviour
 {
     public int vida;
     public int puntos = 0;
+    public GameObject Obstaculo;
     [SerializeField]
     private TMP_Text textoPuntos;
     [SerializeField]
     private TMP_Text textoVida;
     [SerializeField]
     private TMP_Text textoContador;
+    [SerializeField]
+    private TMP_Text textoLlave;
+
+    public void EstadoLlave(bool locked)
+    {
+        if (locked = false)
+        {
+            textoLlave.text = "Llave: No ";
+        }
+        
+        if(locked = true)
+        {
+            textoLlave.text = "Llave: Si ";
+        }
+    }
 
     public void SumarPuntos(int cantidad)
     {
         puntos += cantidad;
-        textoPuntos.text = "Puntos: " + puntos;
+        textoPuntos.text = "Huesos: " + puntos;
+
+        if (puntos >= 10)
+        {
+            Destroy(Obstaculo);
+            Debug.Log("Ve por la llave");
+        }
     }
 
     public void RestarVida(int salud)
