@@ -1,4 +1,3 @@
-using System.Xml.Linq;
 using UnityEngine;
 
 public class PuntoHueso : MonoBehaviour

@@ -17,18 +17,19 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private TMP_Text textoLlave;
 
-    public void EstadoLlave(bool locked)
+    public void EstadoLlave(bool tieneLlave)
     {
-        if (locked = false)
+        if (tieneLlave == false)
         {
             textoLlave.text = "Llave: No ";
         }
         
-        if(locked = true)
+        if(tieneLlave == true)
         {
             textoLlave.text = "Llave: Si ";
         }
     }
+
 
     public void SumarPuntos(int cantidad)
     {

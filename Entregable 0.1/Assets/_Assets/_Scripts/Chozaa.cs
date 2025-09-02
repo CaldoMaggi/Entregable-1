@@ -9,11 +9,11 @@ public class Chozaa : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            PlayerController p = other.GetComponent<PlayerController>();
+            PlayerController player = other.GetComponent<PlayerController>();
 
-            if (p != null && p.tieneLlave) // Si el jugador tiene la llave
+            if (player != null && player.tieneLlave) // Si el jugador tiene la llave
             {
-                Debug.Log("¡Ganaste! Cargando siguiente escena...");
+                Debug.Log("¡Ganaste!");
                 SceneManager.LoadScene(1); // Cambia al índice 1 en Build Settings
             }
             else
