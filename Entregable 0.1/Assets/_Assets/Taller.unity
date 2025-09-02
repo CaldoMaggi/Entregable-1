@@ -8594,22 +8594,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.78125, y: 0.4375}
   m_EdgeRadius: 0
---- !u!114 &1095503979
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1095503972}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07741c4b88980464fbbcec51c3d7b8ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1972109195}
-  door: {fileID: 0}
-  isPickedUp: 0
-  smoothTime: 0.4
 --- !u!50 &1095503980
 Rigidbody2D:
   serializedVersion: 5
@@ -8637,6 +8621,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1095503983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095503972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49601120b8384a243916e16cbfeed420, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1126007368
 GameObject:
   m_ObjectHideFlags: 0
@@ -29439,7 +29435,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8374503847849027600, guid: 8c129cf0f11a61641bf7f46292dcd7ff, type: 3}
   m_PrefabInstance: {fileID: 8311815115884696024}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2124083910
+--- !u!114 &2124083914
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -29448,11 +29444,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2124083906}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c87497b858c554b4a954d724e1d19163, type: 3}
+  m_Script: {fileID: 11500000, guid: 79efdbd5c5088294c9fbea9620366704, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locked: 0
-  keyPickUp: 0
   player: {fileID: 1972109195}
 --- !u!1001 &2146682796
 PrefabInstance:
@@ -29656,10 +29650,10 @@ PrefabInstance:
       addedObject: {fileID: 1095503976}
     - targetCorrespondingSourceObject: {fileID: 722242591300925191, guid: 88d7853564bca6b49bae6c510a90ca62, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1095503979}
+      addedObject: {fileID: 1095503980}
     - targetCorrespondingSourceObject: {fileID: 722242591300925191, guid: 88d7853564bca6b49bae6c510a90ca62, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1095503980}
+      addedObject: {fileID: 1095503983}
   m_SourcePrefab: {fileID: 100100000, guid: 88d7853564bca6b49bae6c510a90ca62, type: 3}
 --- !u!1001 &5775385649602325139
 PrefabInstance:
@@ -29766,6 +29760,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb2d: {fileID: 5775385649602325141}
+  tieneLlave: 0
 --- !u!1001 &5883962242517377663
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30029,7 +30024,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8374503847849027600, guid: 8c129cf0f11a61641bf7f46292dcd7ff, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2124083910}
+      addedObject: {fileID: 2124083914}
   m_SourcePrefab: {fileID: 100100000, guid: 8c129cf0f11a61641bf7f46292dcd7ff, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public Rigidbody2D rb2d;
+    public bool tieneLlave = false;
     void Update()
     {
         bool flechaUp = Input.GetKeyDown(KeyCode.UpArrow);
