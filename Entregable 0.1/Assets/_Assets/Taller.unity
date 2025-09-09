@@ -11089,7 +11089,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vida: 100
-  puntos: 8
+  puntos: 1
   Obstaculo: {fileID: 1285557260}
   textoPuntos: {fileID: 2074822867}
   textoVida: {fileID: 847526555}

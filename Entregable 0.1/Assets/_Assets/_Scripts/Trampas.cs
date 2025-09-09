@@ -12,17 +12,6 @@ public class Trampa : MonoBehaviour
             gameManager.RestarVida(10);
         }
     }
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Time.timeScale = 0;
-            Debug.Log("se pausó el juego");
-        }
-        else if (Input.GetKeyDown(KeyCode.M))
-        {
-            Time.timeScale = 1;
-            Debug.Log("se reanudó el juego");
-        }
-    }
+   
+    
 }

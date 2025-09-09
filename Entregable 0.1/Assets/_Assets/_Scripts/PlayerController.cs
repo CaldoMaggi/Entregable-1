@@ -5,7 +5,6 @@ public class PlayerController : MonoBehaviour
 {
     public Rigidbody2D rb2d;
     public bool tieneLlave = false;
-    public TMP_Text textoLlave;
 
     void Update()
         {
