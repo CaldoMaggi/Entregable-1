@@ -92,6 +92,10 @@ public class GameManager : MonoBehaviour
             case "Jugando":
                 Time.timeScale = 1;
                 break;
+
+            case "Salir":
+                 Application.Quit();
+                break;
         }
     }
 
@@ -114,6 +118,7 @@ public class GameManager : MonoBehaviour
             case "Llave":
                 textoLlave.text = "Llave: Si ";
                 break;
+
         }
     }
 }
