@@ -8,7 +8,10 @@ public class GameManager : MonoBehaviour
 {
     public int vida;
     public int puntos = 0;
+    private int cantidad = 1000;
     public GameObject Obstaculo;
+    public bool LlaveActiva = false;
+    public bool ChozaActiva = false;
 
     [SerializeField]
     private TMP_Text textoPuntos;
@@ -19,9 +22,19 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private TMP_Text textoLlave;
 
-    public bool LlaveActiva = false;
-    public bool ChozaActiva = false;
+    private void Start()
+    {
+        for (int i = 0; i < 1001; i++)
+        {
+            print(i);
+        }
 
+        while (cantidad > 0)
+        {
+            print(cantidad);
+            cantidad--;
+        }
+    }
     public void EstadoLlave(bool tieneLlave)
     {
         LlaveActiva = tieneLlave;
@@ -57,6 +70,11 @@ public class GameManager : MonoBehaviour
     }
     private void VidaTotal(int vida)
     {
+        if (vida == 0)
+        {
+            ActualizarUI("Vida");
+            EstadoDeJuego("Perdiste");
+        }
         ActualizarUI("Vida");
     }
     public void Pausa()
@@ -75,7 +93,14 @@ public class GameManager : MonoBehaviour
     public void EstadoChoza(bool ChozaActive)
     {
         ChozaActiva = ChozaActive;
-        EstadoDeJuego("Ganaste");
+        if(ChozaActiva == false)
+        {
+            Debug.Log("falta la llave");
+        } else if (ChozaActiva == true)
+        {
+            EstadoDeJuego("Ganaste");
+        }
+
     }
 
     public void EstadoDeJuego(string estado)
