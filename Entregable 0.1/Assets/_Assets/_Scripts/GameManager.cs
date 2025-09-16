@@ -17,6 +17,11 @@ public class GameManager : MonoBehaviour
     private TMP_Text textoContador;
     [SerializeField]
     private TMP_Text textoLlave;
+    int i = 1000;
+
+
+    [SerializeField] private TMP_Text[] Nombres;
+
 
     public bool LlaveActiva = false;
 
@@ -120,5 +125,37 @@ public class GameManager : MonoBehaviour
                 break;
 
         }
+        
+        
+
+        
+    }
+    public void Start()
+    {
+        Nombres[3].text = "Juana";
+
+        for (int i = 0; i < Nombres.Length; i++)
+        {
+            Nombres[i].text = "Miguel";
+        }
+        /* for (int i = 0; i <= 1000; i++)
+         {
+             Debug.Log(i);
+         }*/
+
+
+        /* while (i > 1000)
+         {
+             Debug.Log(i);
+             i--;
+         }*/
+
+       /* do
+        {
+            Debug.Log(i);
+            i--;
+        } while (i > 0);*/
+
+           
     }
 }
