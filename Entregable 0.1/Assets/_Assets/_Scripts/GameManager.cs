@@ -6,47 +6,37 @@ using JetBrains.Annotations;
 
 public class GameManager : MonoBehaviour
 {
-    public int vida;
-    public int puntos = 0;
-    private int cantidad = 1000;
     public GameObject Obstaculo;
+    public UIManager _UIManager;
     public bool LlaveActiva = false;
     public bool ChozaActiva = false;
+    public int puntos;
+    public int vida;
 
-    [SerializeField]
-    private TMP_Text textoPuntos;
-    [SerializeField]
-    private TMP_Text textoVida;
-    [SerializeField]
-    private TMP_Text textoContador;
-    [SerializeField]
-    private TMP_Text textoLlave;
-
-    private void Start()
+    public void Update()
     {
-        for (int i = 0; i < 1001; i++)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            print(i);
+            Debug.Log("se pausó el juego");
+            _UIManager.EstadoDeJuego("Pausa");
         }
-
-        while (cantidad > 0)
+        if (Input.GetKeyDown(KeyCode.M))
         {
-            print(cantidad);
-            cantidad--;
+            Debug.Log("se reanudó el juego");
+            _UIManager.EstadoDeJuego("Jugando");
+
         }
     }
     public void EstadoLlave(bool tieneLlave)
     {
         LlaveActiva = tieneLlave;
-        ActualizarUI("Llave");
-
+        _UIManager.ActualizarUI("Llave");
     }
-
 
     public void SumarPuntos(int cantidad)
     {
         puntos += cantidad;
-        ActualizarUI("Puntos");
+        _UIManager.ActualizarUI("Puntos");
 
         if (puntos >= 10)
         {
@@ -59,35 +49,36 @@ public class GameManager : MonoBehaviour
     {
         vida -= salud;
         VidaTotal(vida);
-        ActualizarUI("Vida");
+        _UIManager.ActualizarUI("Vida");
     }
 
     public void SumarVida(int musloVida)
     {
         vida += musloVida;
         VidaTotal(vida);
-        ActualizarUI("Vida");
+        _UIManager.ActualizarUI("Vida");
     }
     private void VidaTotal(int vida)
     {
+        Debug.Log("vida total");
         if (vida == 0)
         {
-            ActualizarUI("Vida");
-            EstadoDeJuego("Perdiste");
+            _UIManager.ActualizarUI("Vida");
+            _UIManager.EstadoDeJuego("Perdiste");
         }
-        ActualizarUI("Vida");
+        _UIManager.ActualizarUI("Vida");
     }
     public void Pausa()
     {
         Input.GetKeyDown(KeyCode.Escape);
           Debug.Log("se pausó el juego");
-          EstadoDeJuego("Pausa");
+        _UIManager.EstadoDeJuego("Pausa");
     }
     public void Jugando()
     {
         Input.GetKeyDown(KeyCode.M);
-            Debug.Log("se reanudó el juego");
-            EstadoDeJuego("Jugando");
+        Debug.Log("se reanudó el juego");
+        _UIManager.EstadoDeJuego("Jugando");
     }
 
     public void EstadoChoza(bool ChozaActive)
@@ -98,55 +89,8 @@ public class GameManager : MonoBehaviour
             Debug.Log("falta la llave");
         } else if (ChozaActiva == true)
         {
-            EstadoDeJuego("Ganaste");
+            _UIManager.EstadoDeJuego("Ganaste");
         }
 
-    }
-
-    public void EstadoDeJuego(string estado)
-    {
-        switch (estado)
-        {
-            case "Ganaste":
-                SceneManager.LoadScene(1);
-                break;
-
-            case "Perdiste":
-                SceneManager.LoadScene(0);
-                break;
-
-            case "Pausa":
-                Time.timeScale = 0;
-                break;
-
-            case "Jugando":
-                Time.timeScale = 1;
-                break;
-            case "Salir":
-                Application.Quit();
-                break;
-        }
-    }
-
-
-    public void ActualizarUI(string texto)
-    {
-        switch(texto) 
-        {
-            case "Vida":
-                textoVida.text = "Vida: " + vida;
-                break;
-
-            case "Tiempo":
-                
-                break;
-            case "Puntos":
-                textoPuntos.text = "Huesos: " + puntos;
-                break;
-
-            case "Llave":
-                textoLlave.text = "Llave: Si ";
-                break;
-        }
     }
 }

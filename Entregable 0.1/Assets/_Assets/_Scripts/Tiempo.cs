@@ -9,6 +9,7 @@ using System.Runtime.CompilerServices;
 
 public class Tiempo : MonoBehaviour
 {
+    public UIManager _UIManager;
     public TextMeshProUGUI tiempoText;
     public float tiempoFaltante;
     public void AddTime(float timeToAdd)
@@ -25,18 +26,13 @@ public class Tiempo : MonoBehaviour
         if (tiempoFaltante < 0)
         {
             tiempoFaltante = 0;
-            CambiarEscena();
+            _UIManager.EstadoDeJuego("Perdiste");
         }
 
         int minutes = Mathf.FloorToInt(tiempoFaltante / 60);
         int seconds = Mathf.FloorToInt(tiempoFaltante % 60);
 
         tiempoText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-
-        void CambiarEscena()
-        {
-            SceneManager.LoadScene(0);
-        }
 
     }
 }

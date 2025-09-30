@@ -2492,6 +2492,7 @@ GameObject:
   - component: {fileID: 319609827}
   - component: {fileID: 319609826}
   - component: {fileID: 319609825}
+  - component: {fileID: 319609828}
   m_Layer: 5
   m_Name: ==Canvas==
   m_TagString: Untagged
@@ -2588,6 +2589,22 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &319609828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319609823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61af6dd21f1bb804db90dfac04ad1301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 1633551497}
+  textoPuntos: {fileID: 2074822867}
+  textoVida: {fileID: 847526555}
+  textoLlave: {fileID: 871131150}
 --- !u!1 &319813415
 GameObject:
   m_ObjectHideFlags: 0
@@ -7339,6 +7356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67bf4df070eb72844838576d2172ea59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _UIManager: {fileID: 319609828}
   tiempoText: {fileID: 1818409717}
   tiempoFaltante: 60
 --- !u!1 &846913373
@@ -11980,15 +11998,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40534fb12b6549b4e9b81358c8184003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 100
-  puntos: 10
   Obstaculo: {fileID: 1285557260}
-  textoPuntos: {fileID: 2074822867}
-  textoVida: {fileID: 847526555}
-  textoContador: {fileID: 1818409717}
-  textoLlave: {fileID: 871131150}
+  _UIManager: {fileID: 319609828}
   LlaveActiva: 0
   ChozaActiva: 0
+  puntos: 10
+  vida: 100
 --- !u!4 &1633551498
 Transform:
   m_ObjectHideFlags: 0

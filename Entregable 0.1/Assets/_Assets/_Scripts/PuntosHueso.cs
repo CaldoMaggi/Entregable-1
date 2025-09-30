@@ -6,7 +6,7 @@ public class PuntoHueso : MonoBehaviour
     private GameManager gameManager;
     public int cantidad;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {

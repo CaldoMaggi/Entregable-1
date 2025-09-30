@@ -2,77 +2,65 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
     [SerializeField]
-    private TMP_Text Textintro;
+    private GameManager gameManager;
     [SerializeField]
-    private TMP_InputField Inputfield;
-    private int edad;
+    private TMP_Text textoPuntos;
+    [SerializeField]
+    private TMP_Text textoVida;
+    [SerializeField]
+    private TMP_Text textoLlave;
 
 
-    public void Start ()
+    public void EstadoDeJuego(string estado)
     {
         
+        switch (estado)
+        {
+            case "Ganaste":
+                SceneManager.LoadScene(1);
+                break;
+
+            case "Perdiste":
+                SceneManager.LoadScene(0);
+                break;
+
+            case "Pausa":
+                Time.timeScale = 0;
+                break;
+
+            case "Jugando":
+                Time.timeScale = 1;
+                break;
+            case "Salir":
+                Application.Quit();
+                break;
+        }
     }
 
-    public void CalcularGrupo()
+    public void ActualizarUI(string texto)
     {
-        edad = int.Parse(Inputfield.text);
-
-        switch (edad)
+        Debug.Log("estado del juego");
+        switch (texto)
         {
-            case 18:
-
-                Debug.Log("Tienes 18 años");
-
+            case "Vida":
+                Debug.Log("vidas");
+                textoVida.text = "Vida: " + gameManager.vida;
                 break;
 
-            case 25:
-                print("Tienes 25 años");
-
+            case "Puntos":
+                
+                textoPuntos.text = "Huesos: " + gameManager.puntos;
                 break;
 
-            case 40:
-                print("Tienes 40 años");
-
-                break;
-
-            default:
-                print("Tienes otra edad");
-
+            case "Llave":
+                textoLlave.text = "Llave: Si ";
                 break;
         }
-
-        /*
-        if (edad <= 12)
-        {
-            Debug.Log("Eres un niño");
-
-        }
-        else if (edad >= 13 && edad <= 18) 
-        {
-            Debug.Log("Eres un Adolecente");
-        }
-        else if (edad >= 19 && edad <= 25)
-        {
-            Debug.Log("Eres un Adulto Joven");
-        }
-        else if (edad >= 26 && edad <= 60)
-        {
-            Debug.Log("Eres un Adulto");
-        }
-        else if (edad >= 60 && edad < 100)
-        {
-            Debug.Log("Eres un Adulto Mayor");
-        }
-        else if (edad >= 100)
-        {
-            Debug.Log("Eres un ENTE");
-        }
-        */
-       
     }
 
 }
