@@ -11,6 +11,7 @@ public class Tiempo : MonoBehaviour
 {
     public TextMeshProUGUI tiempoText;
     public float tiempoFaltante;
+    public GameManager gameManager;
     public void AddTime(float timeToAdd)
     {
         tiempoFaltante += timeToAdd;
@@ -25,7 +26,7 @@ public class Tiempo : MonoBehaviour
         if (tiempoFaltante < 0)
         {
             tiempoFaltante = 0;
-            CambiarEscena();
+            gameManager.EstadoDeJuego("Perdiste");
         }
 
         int minutes = Mathf.FloorToInt(tiempoFaltante / 60);
@@ -33,10 +34,6 @@ public class Tiempo : MonoBehaviour
 
         tiempoText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
 
-        void CambiarEscena()
-        {
-            SceneManager.LoadScene(0);
-        }
-
+       
     }
 }

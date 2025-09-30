@@ -49,8 +49,9 @@ public class GameManager : MonoBehaviour
     public void RestarVida(int salud)
     {
         vida -= salud;
-       // textoVida.text = "Vida: " + vida;
+        // textoVida.text = "Vida: " + vida;
         VidaTotal(vida);
+        ActualizarUI("Vida");
     }
 
     public void SumarVida(int musloVida)
@@ -58,12 +59,13 @@ public class GameManager : MonoBehaviour
         vida += musloVida;
        // textoVida.text = "Vida: " + vida;
         VidaTotal(vida);
+        ActualizarUI("Vida");
     }
     private void VidaTotal(int vida)
     {
         if (vida <= 0)
         {
-            //SceneManager.LoadScene(0);
+            EstadoDeJuego("Perdiste");
         }
     }
     public void Pausa()
@@ -124,38 +126,6 @@ public class GameManager : MonoBehaviour
                 textoLlave.text = "Llave: Si ";
                 break;
 
-        }
-        
-        
-
-        
-    }
-    public void Start()
-    {
-        Nombres[3].text = "Juana";
-
-        for (int i = 0; i < Nombres.Length; i++)
-        {
-            Nombres[i].text = "Miguel";
-        }
-        /* for (int i = 0; i <= 1000; i++)
-         {
-             Debug.Log(i);
-         }*/
-
-
-        /* while (i > 1000)
-         {
-             Debug.Log(i);
-             i--;
-         }*/
-
-       /* do
-        {
-            Debug.Log(i);
-            i--;
-        } while (i > 0);*/
-
-           
+        }      
     }
 }
