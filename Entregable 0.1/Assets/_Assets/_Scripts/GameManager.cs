@@ -17,10 +17,7 @@ public class GameManager : MonoBehaviour
     private TMP_Text textoContador;
     [SerializeField]
     private TMP_Text textoLlave;
-    int i = 1000;
-
-
-    [SerializeField] private TMP_Text[] Nombres;
+   
 
 
     public bool LlaveActiva = false;
@@ -39,7 +36,7 @@ public class GameManager : MonoBehaviour
         //textoPuntos.text = "Huesos: " + puntos;
         ActualizarUI("Puntos");
 
-        if (puntos >= 10)
+        if (puntos >= 1)
         {
             Destroy(Obstaculo);
             Debug.Log("Ve por la llave");
