@@ -73,5 +73,8 @@ public class UIManager : MonoBehaviour
                 break;
         }
     }
-
+    public void Salir()
+    {
+        Application.Quit();
+    }
 }

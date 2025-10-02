@@ -9,11 +9,17 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/_Assets/Taller.unity
+    path: Assets/Scenes/Taller.unity
     guid: 6f709a3258398e545bc0f4afdd379a21
   - enabled: 1
     path: Assets/Scenes/ganaste.unity
     guid: 9f8bdb9501e834741ab8cd9b4c11b936
+  - enabled: 1
+    path: Assets/Scenes/pantalla Inicio.unity
+    guid: 90101f1b7bff4894ca6497ce7d340dd1
+  - enabled: 1
+    path: Assets/Scenes/perdiste.unity
+    guid: 3f9f8315a597b2942bac89b7892d6f85
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
