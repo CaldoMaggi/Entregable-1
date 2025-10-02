@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine.UI;
 using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
+using UnityEditor;
 
 public class UIManager : MonoBehaviour
 {
@@ -11,10 +12,27 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private TMP_Text textoPuntos;
     [SerializeField]
-    private TMP_Text textoVida;
+    private Image[] spriteCorazon;
     [SerializeField]
-    private TMP_Text textoLlave;
+    private Image spriteLLave;
+    [SerializeField]
+    private GameObject Canvas;
 
+    public void ActualizarCorazones(int vida)
+    {
+        for (int i = 0; i < spriteCorazon.Length; i++)
+        {
+            // Activa los corazones si el índice es menor a la vida, sino los desactiva
+            spriteCorazon[i].enabled = i < vida;
+        }
+    }
+    public void ActualizarLlave(bool tieneLlave)
+    {
+        if(tieneLlave == true)
+        {
+            spriteLLave.enabled = true;
+        }
+    }
 
     public void EstadoDeJuego(string estado)
     {
@@ -31,10 +49,12 @@ public class UIManager : MonoBehaviour
 
             case "Pausa":
                 Time.timeScale = 0;
+                Canvas.SetActive(true);
                 break;
 
             case "Jugando":
                 Time.timeScale = 1;
+                Canvas.SetActive(false);
                 break;
             case "Salir":
                 Application.Quit();
@@ -47,18 +67,9 @@ public class UIManager : MonoBehaviour
         Debug.Log("estado del juego");
         switch (texto)
         {
-            case "Vida":
-                Debug.Log("vidas");
-                textoVida.text = "Vida: " + gameManager.vida;
-                break;
-
             case "Puntos":
                 
                 textoPuntos.text = "Huesos: " + gameManager.puntos;
-                break;
-
-            case "Llave":
-                textoLlave.text = "Llave: Si ";
                 break;
         }
     }

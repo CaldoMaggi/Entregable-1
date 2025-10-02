@@ -9,7 +9,10 @@ public class MuslosVida : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            gameManager.SumarVida(5);
+            if (gameManager.vida < 5)
+            {
+                gameManager.SumarVida(1);
+            }
             Destroy(this.gameObject);
         }
     }

@@ -9,7 +9,7 @@ public class Trampa : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            gameManager.RestarVida(10);
+            gameManager.RestarVida(1);
         }
     }
    

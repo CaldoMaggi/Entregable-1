@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
     public void EstadoLlave(bool tieneLlave)
     {
         LlaveActiva = tieneLlave;
-        _UIManager.ActualizarUI("Llave");
+        _UIManager.ActualizarLlave(tieneLlave);
     }
 
     public void SumarPuntos(int cantidad)
@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
         vida -= salud;
         VidaTotal(vida);
         _UIManager.ActualizarUI("Vida");
+        _UIManager.ActualizarCorazones(vida);
     }
 
     public void SumarVida(int musloVida)
@@ -57,6 +58,7 @@ public class GameManager : MonoBehaviour
         vida += musloVida;
         VidaTotal(vida);
         _UIManager.ActualizarUI("Vida");
+        _UIManager.ActualizarCorazones(vida);
     }
     private void VidaTotal(int vida)
     {
@@ -65,8 +67,10 @@ public class GameManager : MonoBehaviour
         {
             _UIManager.ActualizarUI("Vida");
             _UIManager.EstadoDeJuego("Perdiste");
+            _UIManager.ActualizarCorazones(vida);
         }
         _UIManager.ActualizarUI("Vida");
+        _UIManager.ActualizarCorazones(vida);
     }
     public void Pausa()
     {
