@@ -44,7 +44,7 @@ public class UIManager : MonoBehaviour
                 break;
 
             case "Perdiste":
-                SceneManager.LoadScene(0);
+                SceneManager.LoadScene(3);
                 break;
 
             case "Pausa":
