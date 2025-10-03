@@ -13,20 +13,6 @@ public class GameManager : MonoBehaviour
     public int puntos;
     public int vida;
 
-    public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Debug.Log("se pausó el juego");
-            _UIManager.EstadoDeJuego("Pausa");
-        }
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            Debug.Log("se reanudó el juego");
-            _UIManager.EstadoDeJuego("Jugando");
-
-        }
-    }
     public void EstadoLlave(bool tieneLlave)
     {
         LlaveActiva = tieneLlave;
@@ -41,7 +27,6 @@ public class GameManager : MonoBehaviour
         if (puntos >= 10)
         {
             Destroy(Obstaculo);
-            Debug.Log("Ve por la llave");
         }
     }
 
@@ -62,7 +47,6 @@ public class GameManager : MonoBehaviour
     }
     private void VidaTotal(int vida)
     {
-        Debug.Log("vida total");
         if (vida == 0)
         {
             _UIManager.ActualizarUI("Vida");
@@ -74,14 +58,12 @@ public class GameManager : MonoBehaviour
     }
     public void Pausa()
     {
-        Input.GetKeyDown(KeyCode.Escape);
-          Debug.Log("se pausó el juego");
+        Input.GetKeyUp(KeyCode.Escape);
         _UIManager.EstadoDeJuego("Pausa");
     }
     public void Jugando()
     {
-        Input.GetKeyDown(KeyCode.M);
-        Debug.Log("se reanudó el juego");
+        Input.GetKeyDown(KeyCode.Escape);
         _UIManager.EstadoDeJuego("Jugando");
     }
 
@@ -90,7 +72,6 @@ public class GameManager : MonoBehaviour
         ChozaActiva = ChozaActive;
         if(ChozaActiva == false)
         {
-            Debug.Log("falta la llave");
         } else if (ChozaActiva == true)
         {
             _UIManager.EstadoDeJuego("Ganaste");

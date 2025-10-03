@@ -16,12 +16,10 @@ public class Chozaa : MonoBehaviour
             if (player != null && player.tieneLlave) // Si el jugador tiene la llave
             {
                 gameManager.EstadoChoza(true);
-                Debug.Log("¡Ganaste!");
             }
             else
             {
                 gameManager.EstadoChoza(false);
-                Debug.Log("La choza está cerrada. Necesitas la llave.");
             }
         }
     }

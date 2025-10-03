@@ -7,14 +7,10 @@ public class Key : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-
             PlayerController player = other.GetComponent<PlayerController>();
-
             if (player != null)
             {
                 player.tieneLlave = (true);   // el jugador ahora tiene la llave
-
-                Debug.Log("Llave recogida ✅");
                 gameManager.EstadoLlave(true);
                 Destroy(gameObject);        // destruimos la llave
             }

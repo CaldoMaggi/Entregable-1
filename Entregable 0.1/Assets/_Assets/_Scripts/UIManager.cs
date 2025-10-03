@@ -64,7 +64,6 @@ public class UIManager : MonoBehaviour
 
     public void ActualizarUI(string texto)
     {
-        Debug.Log("estado del juego");
         switch (texto)
         {
             case "Puntos":
