@@ -5,7 +5,6 @@ public class Chozaa : MonoBehaviour
 {
     [SerializeField]
     private GameManager gameManager;
-    private bool ChozaActive = false;
 
     private void OnTriggerEnter2D(Collider2D other)
     {

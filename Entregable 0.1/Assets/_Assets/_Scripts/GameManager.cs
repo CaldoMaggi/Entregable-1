@@ -6,10 +6,18 @@ using JetBrains.Annotations;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject Obstaculo;
-    public UIManager _UIManager;
-    public bool LlaveActiva = false;
-    public bool ChozaActiva = false;
+    [SerializeField]
+    private GameObject Obstaculo;
+    [SerializeField]
+    private GameObject Canvas;
+    [SerializeField]
+    private UIManager _UIManager;
+    [SerializeField]
+    private bool _estaPausado = false;
+    [SerializeField]
+    private bool LlaveActiva = false;
+    [SerializeField]
+    private bool ChozaActiva = false;
     public int puntos;
     public int vida;
 
@@ -56,17 +64,20 @@ public class GameManager : MonoBehaviour
         _UIManager.ActualizarUI("Vida");
         _UIManager.ActualizarCorazones(vida);
     }
-    public void Pausa()
+    void Update()
     {
-        Input.GetKeyUp(KeyCode.Escape);
-        _UIManager.EstadoDeJuego("Pausa");
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (Canvas.activeSelf) //desactivar
+            {
+                _UIManager.EstadoDeJuego("Jugando");
+            }
+            else // activar
+            {
+                _UIManager.EstadoDeJuego("Pausa");
+            }
+        }
     }
-    public void Jugando()
-    {
-        Input.GetKeyDown(KeyCode.Escape);
-        _UIManager.EstadoDeJuego("Jugando");
-    }
-
     public void EstadoChoza(bool ChozaActive)
     {
         ChozaActiva = ChozaActive;

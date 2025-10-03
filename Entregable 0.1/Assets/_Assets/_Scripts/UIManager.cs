@@ -61,7 +61,6 @@ public class UIManager : MonoBehaviour
                 break;
         }
     }
-
     public void ActualizarUI(string texto)
     {
         switch (texto)
