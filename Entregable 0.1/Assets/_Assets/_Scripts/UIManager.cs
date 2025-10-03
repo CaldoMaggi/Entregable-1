@@ -73,6 +73,10 @@ public class UIManager : MonoBehaviour
                 break;
         }
     }
+    public void Jugar()
+    {
+        SceneManager.LoadScene(0);
+    }
     public void Salir()
     {
         Application.Quit();
