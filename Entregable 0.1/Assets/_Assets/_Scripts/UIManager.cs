@@ -40,7 +40,7 @@ public class UIManager : MonoBehaviour
         switch (estado)
         {
             case "Ganaste":
-                SceneManager.LoadScene(1);
+                SceneManager.LoadScene(2);
                 break;
 
             case "Perdiste":
@@ -73,7 +73,7 @@ public class UIManager : MonoBehaviour
     }
     public void Jugar()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
     public void Salir()
     {
